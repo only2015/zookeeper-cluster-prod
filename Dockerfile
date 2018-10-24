@@ -1,6 +1,7 @@
 FROM centos:7.5.1804
 maintainer only server888@yeah.net
-
+# Define commonly used JAVA_HOME variable
+# Add /srv/java and jdk on PATH variable
 ENV JAVA_HOME=/usr/java/jdk
 ENV CLASSPATH=$CLASSPATH:$JAVA_HOME/lib:$JAVA_HOME/jre/lib
 ENV PATH=$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH:$HOMR/bin
@@ -13,10 +14,7 @@ RUN yum install -y wget && \
     tar zvxf jdk-8u141-linux-x64.tar.gz -C /usr/java/  && \
     rm -f jdk-8u141-linux-x64.tar.gz && \
     mv /usr/java/jdk1.8.0_141  /usr/java/jdk
-# Define commonly used JAVA_HOME variable
-# Add /srv/java and jdk on PATH variable
-ENV JAVA_HOME=/usr/java/jdk
-ENV PATH=${PATH}:/usr/java/jdk/bin:/srv/java
+
 RUN mkdir -p /usr/local/fn && \
     cd /usr/local/fn/  && \
    wget https://archive.apache.org/dist/zookeeper/zookeeper-3.4.9/zookeeper-3.4.9.tar.gz && \
