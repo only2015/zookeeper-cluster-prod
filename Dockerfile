@@ -17,6 +17,7 @@ RUN mkdir -p /usr/java/ && \
     cd /usr/local/fn/  && \
    wget https://archive.apache.org/dist/zookeeper/zookeeper-3.4.9/zookeeper-3.4.9.tar.gz && \
    tar zxvf zookeeper-3.4.9.tar.gz -C /usr/local/fn/ && \
+   rm -f zookeeper-3.4.9.tar.gz && \
    ln -s /usr/local/fn/zookeeper-3.4.9 ${ZK_HOME}
 
 EXPOSE 2181
